@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "NgxInnerLoading": {
+      "projectType": "library",
+      "root": "projects/ngx-inner-loading",
+      "sourceRoot": "projects/ngx-inner-loading/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-inner-loading/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-inner-loading/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-inner-loading/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-inner-loading/src/test.ts",
+            "tsConfig": "projects/ngx-inner-loading/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-inner-loading/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "ApparenceLibrary"

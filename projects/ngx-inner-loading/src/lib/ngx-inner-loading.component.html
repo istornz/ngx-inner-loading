@@ -1,0 +1,8 @@
+<ngx-loading *ngIf="loading; else content" [description]="loadingDescription">
+</ngx-loading>
+
+<ng-template #content>
+  <ngx-empty *ngIf="!error && empty" [description]="emptyDescription"></ngx-empty>
+  <ngx-error *ngIf="error" [description]="errorDescription" [retryButtonVisible]="isRetryButtonVisible"
+    (retry)="onRetryClick()"></ngx-error>
+</ng-template>

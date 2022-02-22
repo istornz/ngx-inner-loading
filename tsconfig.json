@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "NgxInnerLoading": [
+        "dist/ngx-inner-loading/ngx-inner-loading",
+        "dist/ngx-inner-loading"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
