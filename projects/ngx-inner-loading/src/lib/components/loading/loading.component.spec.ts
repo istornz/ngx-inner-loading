@@ -8,9 +8,8 @@ describe('LoadingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadingComponent ]
-    })
-    .compileComponents();
+      declarations: [LoadingComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,24 @@ describe('LoadingComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display default description', async () => {
+    fixture.detectChanges();
+
+    const descriptionText = fixture.debugElement.nativeElement.querySelector(
+      '.spinner-description'
+    ).textContent;
+    expect(descriptionText).toContain('Loading ...');
+  });
+
+  it('should display custom description on provided', async () => {
+    component.description = 'Random description';
+    fixture.detectChanges();
+
+    const descriptionText = fixture.debugElement.nativeElement.querySelector(
+      '.spinner-description'
+    ).textContent;
+    expect(descriptionText).toContain('Random description');
   });
 });

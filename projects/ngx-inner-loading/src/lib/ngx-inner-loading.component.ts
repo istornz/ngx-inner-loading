@@ -12,6 +12,7 @@ export class NgxInnerLoadingComponent {
 
   @Input() loadingDescription?: string;
   @Input() errorDescription?: string;
+  @Input() retryButtonText?: string;
   @Input() emptyDescription?: string;
 
   @Output() retry = new EventEmitter<void>();

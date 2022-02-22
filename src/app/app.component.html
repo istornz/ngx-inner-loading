@@ -1,2 +1,3 @@
 <h2>Demo</h2>
-<ngx-inner-loading [loading]="true" [empty]="false" [error]="false"></ngx-inner-loading>
+<ngx-inner-loading [loading]="false" [empty]="false" [error]="true" (retry)="retry()" [retryButtonText]="'Réessayer'">
+</ngx-inner-loading>

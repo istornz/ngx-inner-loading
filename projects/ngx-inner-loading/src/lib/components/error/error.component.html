@@ -1,7 +1,6 @@
-<i class="iconly-Close-Square"></i>
-<span class="error-description">{{ (description ? description : 'Une erreur est survenue, veuillez réessayer plus tard ...') }}</span>
+<i class="bi bi-exclamation-circle"></i>
+<span class="error-description">{{ (description ?? 'An error occurred, please try again later ...') }}</span>
 
-<button *ngIf="isRetryButtonVisible" type="button"
-  class="btn btn-outline-primary btn-outline text-only retry-button" (click)="onRetry()">
-  Réessayer
+<button *ngIf="isRetryButtonVisible" type="button" class="btn btn-primary retry-button" (click)="onRetry()">
+  {{ retryButtonText ?? 'Retry' }}
 </button>

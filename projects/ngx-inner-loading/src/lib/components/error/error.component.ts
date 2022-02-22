@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ErrorComponent {
   @Input() description?: string;
   @Input() retryButtonVisible?: boolean;
+  @Input() retryButtonText?: string;
   @Output() retry = new EventEmitter<void>();
 
   onRetry(): void {
