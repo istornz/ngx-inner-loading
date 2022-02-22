@@ -1,27 +1,81 @@
-# ApparenceLibrary
+# NgxInnerLoading
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+A simple Angular wrapper working with **Bootstrap** to show dynamically **empty** 🙈, **error** ⛔️ or **loading** 🦥 screen.
 
-## Development server
+## 🧐 What is it ?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This library help you displaying **multiple** screens when you are trying to load data:
+- **Loading** screen ➡️ when loading data.
+- **Empty** screen ➡️ when no data was returned.
+- **Error** screen ➡️ when the loading process fail.
 
-## Code scaffolding
+All components are fully **customizables**, you can **easily change** description, display retry button...
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🗃 How to install ?
 
-## Build
+- Import **Bootstrap CSS** in your Angular project:
+  - Using [**ngx-bootstrap**](https://valor-software.com/ngx-bootstrap/#/) (**recommended**).
+  - Manually by adding this line to your ```index.html``` file
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Import **Bootstrap Icons CSS** in your Angular project:
+  - Using [**bootstrap-icons**](https://stackoverflow.com/a/65440311/5078902) (**recommended**).
+  - Manually by adding this line to your ```index.html``` file (below bootstrap CSS import if manually imported too).
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+```
 
-## Running unit tests
+- Install the package
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+npm i ngx-inner-loading --save
+```
 
-## Running end-to-end tests
+## 🎯 How it works ?
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Import the **NgxInnerLoading** module
 
-## Further help
+```typescript
+@NgModule({
+  imports: [
+    NgxInnerLoadingModule
+  ]
+})
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Create in your ```component.ts``` state variables:
+```typescript
+public loading = false;
+public error = false;
+public data?: string[];
+```
+
+- In your ```component.html``` use NgxInnerLoading like this:
+
+```html
+<div *ngIf="!error && !loading && data && data.length > 0; else innerLoading">
+  <h2>Data loaded !</h2>
+</div>
+
+<ng-template #innerLoading>
+  <msd-inner-loading [empty]="data?.length == 0" [error]="error"
+    [loading]="loading" (retry)="retry()">
+  </msd-inner-loading>
+</ng-template>
+```
+
+## 📸 How it looks ?
+
+### Error screen
+
+![error](https://s10.gifyu.com/images/Capture-decran-2022-02-22-a-11.17.36.png)
+
+### Loading screen
+
+![loading](https://s10.gifyu.com/images/Capture-decran-2022-02-22-a-11.20.18.png)
+
+### Empty screen
+
+![empty](https://s10.gifyu.com/images/Capture-decran-2022-02-22-a-11.17.59.png)
