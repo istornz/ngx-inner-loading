@@ -1,8 +1,16 @@
 {
   "name": "ngx-inner-loading",
   "version": "1.0.0",
-  "description":"A simple Angular wrapper working with Bootstrap to show dynamically empty, error or loading screen.",
+  "description":"A simple Angular wrapper working with Bootstrap to show dynamically empty, error or loading screens.",
   "author": "Dimitri Dessus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/istornz/ngx-inner-loading"
+  },
+  "bugs": {
+    "url": "https://github.com/istornz/ngx-inner-loading/issues"
+  },
+  "homepage": "https://github.com/istornz/ngx-inner-loading",
   "keywords": [
     "angular",
     "javascript",
