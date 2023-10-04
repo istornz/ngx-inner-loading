@@ -1,6 +1,6 @@
 {
   "name": "ngx-inner-loading",
-  "version": "0.0.0",
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,6 @@
     "test": "ng test",
     "test:lib": "ng test NgxInnerLoading"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.7",
     "@angular/common": "^16.2.7",
