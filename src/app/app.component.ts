@@ -8,7 +8,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'NgxInnerLoading';
 
+  protected isLoading = false;
+  protected isEmpty = true;
+  protected isError = true;
+
   retry() {
     console.log('Retry');
+  }
+
+  toggleLoading() {
+    this.isLoading = !this.isLoading;
+  }
+
+  toggleEmpty() {
+    this.isEmpty = !this.isEmpty;
+  }
+
+  toggleError() {
+    this.isError = !this.isError;
   }
 }

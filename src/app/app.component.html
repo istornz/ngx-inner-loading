@@ -1,3 +1,27 @@
 <h2>Demo</h2>
-<ngx-inner-loading [loading]="false" [empty]="true" [error]="true" (retry)="retry()">
+
+@if(!isError && !isLoading && !isEmpty) {
+<h2>Data loaded !</h2>
+} @else {
+<ngx-inner-loading
+  [empty]="isEmpty"
+  [error]="isError"
+  [loading]="isLoading"
+  (retry)="retry()"
+>
 </ngx-inner-loading>
+}
+
+<hr />
+
+<div id="buttons-container">
+  <button type="button" class="btn btn-primary" (click)="toggleLoading()">
+    Toggle loading ({{ isLoading }})
+  </button>
+  <button type="button" class="btn btn-primary" (click)="toggleError()">
+    Toggle error ({{ isError }})
+  </button>
+  <button type="button" class="btn btn-primary" (click)="toggleEmpty()">
+    Toggle empty ({{ isEmpty }})
+  </button>
+</div>

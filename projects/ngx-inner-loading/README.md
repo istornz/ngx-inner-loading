@@ -47,23 +47,21 @@ npm i ngx-inner-loading --save
 
 - Create in your ```component.ts``` state variables:
 ```typescript
-public loading = false;
-public error = false;
-public data?: string[];
+protected loading = false;
+protected error = false;
+protected data?: string[];
 ```
 
 - In your ```component.html``` use NgxInnerLoading like this:
 
 ```html
-<div *ngIf="!error && !loading && data && data.length > 0; else innerLoading">
+@if(!error && !loading && data && data.length > 0) {
   <h2>Data loaded !</h2>
-</div>
-
-<ng-template #innerLoading>
-  <msd-inner-loading [empty]="data?.length == 0" [error]="error"
+} @else {
+  <ngx-inner-loading [empty]="data?.length == 0" [error]="error"
     [loading]="loading" (retry)="retry()">
-  </msd-inner-loading>
-</ng-template>
+  </ngx-inner-loading>
+}
 ```
 
 ## 📸 How it looks ?
